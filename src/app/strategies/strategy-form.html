@@ -1,0 +1,65 @@
+<div class="page">
+  <mat-card>
+    <mat-card-header>
+      <mat-card-title>{{ isEdit ? 'Edit strategy' : 'New strategy' }}</mat-card-title>
+    </mat-card-header>
+
+    <mat-card-content>
+      <form [formGroup]="form" (ngSubmit)="submit()" class="form">
+        <mat-form-field appearance="outline">
+          <mat-label>Name</mat-label>
+          <input matInput formControlName="name" />
+          @if (form.controls.name.hasError('required')) {
+            <mat-error>Name is required</mat-error>
+          } @else if (form.controls.name.invalid) {
+            <mat-error>3–50 characters</mat-error>
+          }
+        </mat-form-field>
+
+        <mat-form-field appearance="outline">
+          <mat-label>Buy amount (SOL)</mat-label>
+          <input matInput type="number" step="0.01" formControlName="buyAmountSol" />
+          @if (form.controls.buyAmountSol.invalid) {
+            <mat-error>Between 0.01 and 100</mat-error>
+          }
+        </mat-form-field>
+
+        <mat-form-field appearance="outline">
+          <mat-label>Take profit %</mat-label>
+          <input matInput type="number" formControlName="takeProfitPct" />
+          @if (form.controls.takeProfitPct.invalid) {
+            <mat-error>Between 1 and 10000</mat-error>
+          }
+        </mat-form-field>
+
+        <mat-form-field appearance="outline">
+          <mat-label>Stop loss %</mat-label>
+          <input matInput type="number" formControlName="stopLossPct" />
+          @if (form.controls.stopLossPct.invalid) {
+            <mat-error>Between 1 and 100</mat-error>
+          }
+        </mat-form-field>
+
+        <mat-form-field appearance="outline">
+          <mat-label>Max hold (minutes)</mat-label>
+          <input matInput type="number" step="1" formControlName="maxHoldMinutes" />
+          @if (form.controls.maxHoldMinutes.invalid) {
+            <mat-error>Between 1 and 1440</mat-error>
+          }
+        </mat-form-field>
+
+        <div class="checks">
+          <mat-checkbox formControlName="isActive">Active</mat-checkbox>
+          <mat-checkbox formControlName="isPublic">Public</mat-checkbox>
+        </div>
+
+        <div class="actions">
+          <a mat-button routerLink="/strategies">Cancel</a>
+          <button mat-flat-button color="primary" type="submit" [disabled]="saving()">
+            {{ isEdit ? 'Update' : 'Create' }}
+          </button>
+        </div>
+      </form>
+    </mat-card-content>
+  </mat-card>
+</div>

@@ -1,0 +1,27 @@
+.page {
+  padding: 16px;
+  max-width: 560px;
+  margin: 0 auto;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+mat-form-field {
+  width: 100%;
+}
+
+.checks {
+  display: flex;
+  gap: 24px;
+  margin: 8px 0 16px;
+}
+
+.actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 8px;
+}
