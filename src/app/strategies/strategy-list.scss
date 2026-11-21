@@ -1,0 +1,32 @@
+.page {
+  padding: 16px;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+table {
+  width: 100%;
+  margin-top: 16px;
+}
+
+.center {
+  display: flex;
+  justify-content: center;
+  padding: 40px;
+}
+
+.error {
+  color: #b00020;
+}
+
+.muted {
+  opacity: 0.6;
+}
